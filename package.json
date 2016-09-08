@@ -12,22 +12,19 @@
   },
   "files": [
     "index.js",
-    "index.cjs",
-    "lib/"
+    "index.cjs"
   ],
   "scripts": {
-    "lint": "eslint index.js {lib/,test/}**/*.js",
+    "lint": "meta lint",
     "pretest": "npm run lint -s",
-    "test": "nyc ava",
-    "dev": "npm run test -- --watch",
-    "coverage": "nyc report --reporter=text-lcov | codecov",
-    "see-coverage": "nyc report --reporter=html && open coverage/index.html",
-    "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
-    "docs": "jsdoc2md index.js > docs/api.md",
-    "postdocs": "git add docs/api.md",
+    "test": "meta test",
+    "dev": "meta dev",
+    "coverage": "meta coverage",
+    "see-coverage": "meta see-coverage",
+    "check-coverage": "meta check-coverage",
+    "docs": "meta docs",
     "prebuild": "npm run lint -s",
-    "build": "rollup --format cjs --input index.js --output index.cjs",
-    "postbuild": "git add index.cjs"
+    "build": "meta build"
   },
   "precommit": [
     "test",
@@ -55,17 +52,9 @@
     "tree-crawl": "^0.2.0"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
-    "babel-register": "^6.14.0",
     "clone": "^1.0.2",
-    "codecov.io": "^0.1.6",
-    "eslint": "^3.1.1",
-    "eslint-config-ngryman": "^1.4.0",
-    "jsdoc-to-markdown": "^1.3.7",
-    "nyc": "^8.0.0",
+    "meta-dev": "^0.1.0",
     "pre-commit": "^1.1.3",
-    "rollup": "^0.34.13",
     "spy": "^0.1.3"
   },
   "ava": {
