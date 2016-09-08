@@ -1,0 +1,81 @@
+{
+  "name": "tree-morph",
+  "version": "0.0.0",
+  "description": "Agnostic tree morphing library.",
+  "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh/)",
+  "license": "MIT",
+  "repository": "ngryman/tree-morph",
+  "main": "index.cjs",
+  "jsnext:main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "index.js",
+    "index.cjs",
+    "lib/"
+  ],
+  "scripts": {
+    "lint": "eslint index.js {lib/,test/}**/*.js",
+    "pretest": "npm run lint -s",
+    "test": "nyc ava",
+    "dev": "npm run test -- --watch",
+    "coverage": "nyc report --reporter=text-lcov | codecov",
+    "see-coverage": "nyc report --reporter=html && open coverage/index.html",
+    "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
+    "docs": "jsdoc2md index.js > docs/api.md",
+    "postdocs": "git add docs/api.md",
+    "prebuild": "npm run lint -s",
+    "build": "rollup --format cjs --input index.js --output index.cjs",
+    "postbuild": "git add index.cjs"
+  },
+  "precommit": [
+    "test",
+    "check-coverage",
+    "build",
+    "docs"
+  ],
+  "keywords": [
+    "mutate",
+    "morph",
+    "monomorphism",
+    "isomorphism",
+    "tree",
+    "generic",
+    "agnostic",
+    "immutable",
+    "recursive",
+    "map",
+    "filter",
+    "pluck",
+    "transform",
+    "functor"
+  ],
+  "dependencies": {
+    "tree-crawl": "^0.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "clone": "^1.0.2",
+    "codecov.io": "^0.1.6",
+    "eslint": "^3.1.1",
+    "eslint-config-ngryman": "^1.4.0",
+    "jsdoc-to-markdown": "^1.3.7",
+    "nyc": "^8.0.0",
+    "pre-commit": "^1.1.3",
+    "rollup": "^0.34.13",
+    "spy": "^0.1.3"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "babel": {
+    "plugins": [
+      "babel-plugin-transform-es2015-modules-commonjs"
+    ]
+  }
+}

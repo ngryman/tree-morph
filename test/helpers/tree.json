@@ -1,0 +1,21 @@
+{
+  "type": "node",
+  "value": 1,
+  "children": [
+    {
+      "type": "node",
+      "value": 2,
+      "children": [
+        { "type": "leaf", "value": 3 },
+        { "type": "leaf", "value": 4 }
+      ]
+    },
+    {
+      "type": "node",
+      "value": 5,
+      "children": [
+        { "type": "leaf", "value": 6 }
+      ]
+    }
+  ]
+}
