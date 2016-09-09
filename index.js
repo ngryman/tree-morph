@@ -42,7 +42,7 @@ import crawl from 'tree-crawl'
  * @return {Object} The mutated tree.
  */
 function morph(root, dataMutator, layoutMutator) {
-  // Both mutators are mandatory
+  // both mutators are mandatory
   if ('function' !== typeof dataMutator) {
     throw new TypeError('dataMutator is not a function')
   }
@@ -53,46 +53,46 @@ function morph(root, dataMutator, layoutMutator) {
   let newRoot = null, newPath = []
 
   crawl(root, (node, context) => {
-    // Mutate node data.
+    // mutate node data
     const newNode = dataMutator(node, context)
 
-    // Get the current path item representing the potential parent of the
-    // current node.
+    // get the current path item representing the potential parent of the
+    // current node
     const parent = newPath[newPath.length - 1]
 
-    // Special case for the first iteration as it's the root we are handling.
+    // special case for the first iteration as it's the root we are handling
     if (undefined === parent) {
-      // If new node is not null, set it as the new root
+      // if new node is not null, set it as the new root
       if (null != newNode) {
         newRoot = newNode
       }
-      // Otherwize break as the whole tree has been discarded.
+      // otherwize break as the whole tree has been discarded
       else {
         context.break()
         return
       }
     }
-    // Standard case for other nodes deeper in the hierarchy.
+    // standard case for other nodes deeper in the hierarchy
     else {
-      // If new node is not null we apply a layout mutation.
+      // if new node is not null we apply a layout mutation
       if (null != newNode) {
         layoutMutator(newNode, parent.node)
       }
-      // Otherwize it is discarded
+      // otherwize it is discarded
       else {
         context.skip()
       }
 
-      // Decrement parent TTL. If it reaches zero all the children have been
-      // added and we go up in the hierarchy.
+      // decrement parent TTL, if it reaches zero all the children have been
+      // added and we go up in the hierarchy
       parent.ttl--
       if (0 === parent.ttl) {
         newPath.pop()
       }
     }
 
-    // If all conditions are met, push new node in the path storing how many
-    // children may be added as its TTL (Time To Live).
+    // when all conditions are met, push new node in the path storing how many
+    // children may be added as its TTL (Time To Live)
     if (
       newNode &&
       node.children &&
