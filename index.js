@@ -37,8 +37,8 @@ import crawl from 'tree-crawl'
  * - layout level: mutate node layout
  *
  * @param {Object} root Root node of the tree.
- * @param {Function} dataMutator Mutate node data.
- * @param {Function} layoutMutator Mutate node layout.
+ * @param {DataMutator} dataMutator Mutate node data.
+ * @param {LayoutMutator} layoutMutator Mutate node layout.
  * @return {Object} The mutated tree.
  */
 function morph(root, dataMutator, layoutMutator) {
