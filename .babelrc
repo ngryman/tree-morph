@@ -1,0 +1,12 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        "node5"
+      ],
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
+}

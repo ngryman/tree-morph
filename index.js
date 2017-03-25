@@ -1,5 +1,3 @@
-'use-strict'
-
 import crawl from 'tree-crawl'
 
 /**
@@ -41,7 +39,7 @@ import crawl from 'tree-crawl'
  * @param {LayoutMutator} layoutMutator Mutate node layout.
  * @return {Object} The mutated tree.
  */
-function morph(root, dataMutator, layoutMutator) {
+export default function morph(root, dataMutator, layoutMutator) {
   // both mutators are mandatory
   if ('function' !== typeof dataMutator) {
     throw new TypeError('dataMutator is not a function')
@@ -105,5 +103,3 @@ function morph(root, dataMutator, layoutMutator) {
 
   return newRoot
 }
-
-module.exports = morph
