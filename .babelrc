@@ -2,7 +2,9 @@
   "env": {
     "test": {
       "presets": [
-        "node5"
+        ["env", {
+          "targets": { "node": true }
+        }]
       ],
       "plugins": [
         "istanbul"
