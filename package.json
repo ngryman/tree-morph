@@ -13,7 +13,8 @@
     "node": ">=5"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "dist/"
   ],
   "scripts": {
     "lint": "meta lint",
@@ -25,7 +26,8 @@
     "check-coverage": "meta check-coverage",
     "docs": "documentation build index.js -f md -o docs/api.md",
     "prebuild": "npm run lint -s",
-    "build": "meta build"
+    "build": "meta build",
+    "prepublish": "npm run build"
   },
   "precommit": [
     "test",
