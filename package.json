@@ -52,7 +52,7 @@
     "functor"
   ],
   "dependencies": {
-    "tree-crawl": "^0.6.1"
+    "tree-crawl": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-env": "^1.2.2",
