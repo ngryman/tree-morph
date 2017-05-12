@@ -1,7 +1,5 @@
 # tree-morph
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/tree-morph.svg)](https://greenkeeper.io/)
-
 > Agnostic tree morphing library.
 
 [![travis][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url]
