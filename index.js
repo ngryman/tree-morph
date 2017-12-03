@@ -95,7 +95,7 @@ export default function morph(root, dataMutator, layoutMutator) {
       newNode &&
       node.children &&
       0 !== node.children.length &&
-      !context.is('skip')
+      !context.flags.skip
     ) {
       newPath.push({ node: newNode, ttl: node.children.length })
     }
